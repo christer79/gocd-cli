@@ -40,18 +40,13 @@ func main() {
 	fmt.Println("Agent: GETALL")
 	agents, _, _ := client.Agents.GetAll()
 	fmt.Println(agents)
-	fmt.Println(agents[1].Os)
-	fmt.Println("Agent: GET UUID: " + agents[1].UUID)
-	agent, _, _ := client.Agents.Get(agents[1].UUID)
+	fmt.Println("Agent: GET UUID: " + agents.Embedded.Agents[1].UUID)
+	agent, _, _ := client.Agents.Get(agents.Embedded.Agents[1].UUID)
 	fmt.Println(agent)
 	fmt.Println(agent.Resources)
-	/*
-		fmt.Println("Users: GETALL")
-		users, _, _ := client.Users.GetAll()
-		fmt.Println(users)
 
-		fmt.Println("PipelineGroup: GET")
-		pipelinegroups, _, _ := client.PipelineGroup.Get()
-		fmt.Println(pipelinegroups)
-	*/
+	fmt.Println("PipelineGroup: GET")
+	pipelinegroups, _, _ := client.PipelineGroup.Get()
+	fmt.Println(pipelinegroups)
+
 }
